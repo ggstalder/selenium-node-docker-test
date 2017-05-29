@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  seleniumhub:
+    network_mode: bridge
+    image: selenium/hub
+    ports:
+      - 4444:4444
+
+  firefoxnode:
+    network_mode: bridge
+    image: selenium/node-firefox
+    ports:
+      - 5900
+    links:
+      - seleniumhub:hub
+
+  chromenode:
+    network_mode: bridge
+    image: selenium/node-chrome
+    ports:
+      - 5900
+    links:
+      - seleniumhub:hub
