@@ -5,4 +5,4 @@ services:
     build: .
     network_mode: bridge
     external_links:
-      - root_seleniumhub_1:hub
+      - seleniumnodedockertest_seleniumhub_1:hub
