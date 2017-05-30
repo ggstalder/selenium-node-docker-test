@@ -14,29 +14,50 @@ Test to use selenium with node and docker
 - run docker-compose scale chromenode=10
 - see in the console that tests are ran in parallel
 
+# Demo
+
 I used this repo to make a demo, here is my demo script:
 
-# Preparation:
+## Preparation:
 
+```
 git clone https://github.com/ggstalder/selenium-node-docker-test.git
 cd selenium-node-docker-test
 docker-compose up -d
 cd tester
 docker-compose build
 docker-compose up
+```
+
 Open grid console url /grid/console
 
-# Demo:
+## Demo:
 
 -> Let's see what is currently running
+
+```
 docker ps
+```
+
 -> Go in the grid console url and see the two selenium nodes
+
+```
 docker-compose up
+```
+
 -> The test is runnning against the grid
 -> Launching 10 simultaneous tests
+
+```
 docker-compose scale tester=10
+```
+
 -> Go in the grid console url and see that tests are stuck waiting for an available docker instance
+
+```
 cd ..
 docker-compose scale chromenode=10
+```
+
 -> Go in the grid console url and see that tests are stuck waiting for an available docker instance
 
